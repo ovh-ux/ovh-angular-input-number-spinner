@@ -1,0 +1,34 @@
+<div class="input-number-spinner input-group">
+    <span class="input-group-btn">
+        <button type="button"
+                class="btn"
+                data-ng-class="'btn-{{ $ctrl.buttonClass }}'"
+                data-ng-disabled="$ctrl.value <= $ctrl.min || $ctrl.ngDisabled || $ctrl.ngReadonly"
+                data-ng-mousedown="$ctrl.spin($event, false)"
+                data-ng-mouseup="$ctrl.cancelInterval()"
+                data-ng-mouseout="$ctrl.desactivateButton()"
+                data-ng-bind="'-'">
+        </button>
+    </span>
+
+    <input class="form-control"
+           type="number"
+           data-ng-model="$ctrl.value"
+           min="{{ $ctrl.min }}"
+           max="{{ $ctrl.max }}"
+           data-ng-disabled="$ctrl.ngDisabled"
+           data-ng-readonly="$ctrl.ngReadonly"
+           data-ng-change="$ctrl.onChangeEvent()"/>
+
+    <span class="input-group-btn">
+        <button type="button"
+                class="btn"
+                data-ng-class="'btn-{{ $ctrl.buttonClass }}'"
+                data-ng-disabled="$ctrl.value >= $ctrl.max || $ctrl.ngDisabled || $ctrl.ngReadonly"
+                data-ng-mousedown="$ctrl.spin($event, true)"
+                data-ng-mouseup="$ctrl.cancelInterval()"
+                data-ng-mouseout="$ctrl.desactivateButton()"
+                data-ng-bind="'+'">
+        </button>
+    </span>
+</div>
