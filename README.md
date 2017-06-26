@@ -6,6 +6,8 @@
 
 [![NPM](https://nodei.co/npm/ovh-angular-input-number-spinner.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ovh-angular-input-number-spinner/)
 
+> Input Number with spinner
+
 ## Example
 
 ```javascript
@@ -25,19 +27,17 @@ angular.module("yourModule", [
 
 ## Installation
 
-# Installation
-
-## Bower
+### Bower
 ```
 bower install ovh-angular-input-number-spinner --save
 ```
 
-## NPM
+### NPM
 ```
 npm install ovh-angular-input-number-spinner --save
 ```
 
-## Get the sources
+### Get the sources
 ```bash
 git clone https://github.com/ovh-ux/ovh-angular-input-number-spinner.git
 cd ovh-angular-input-number-spinner
