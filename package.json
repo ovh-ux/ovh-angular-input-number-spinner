@@ -4,7 +4,7 @@
   "description": "Input Number with spinner",
   "main": "./dist/ovh-angular-input-number-spinner.min.js",
   "scripts": {
-      "test": "grunt test"
+    "test": "grunt test"
   },
   "license": "BSD-3-Clause",
   "author": "OVH SAS",
