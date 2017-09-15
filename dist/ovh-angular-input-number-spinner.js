@@ -20,20 +20,22 @@ angular.module("ovh-angular-input-number-spinner", []);
  *  @description
  *  <p>Enhance a number input for entering numeric values, with up/down buttons and arrow key handling.</p>
  *
- *  @param    {Number} ng-model                                            The model of the input
- *  @param   {Number=} [input-number-spinner-min=-Infinity]                The minimum value of the input
- *  @param   {Number=} [input-number-spinner-max=Infinity]                 The maximum value of the input
- *  @param   {String=} [input-number-spinner-button-class=default]         The bootstrap class to add to buttons. For example : if buttonClass is equal to primary the buttons will have btn-primary class
- *  @param   {Number=} [input-number-spinner-acceleration-speed=75]        Time (in ms) between two interval
- *  @param   {Number=} [input-number-spinner-time-before-acceleration=500] Time (in ms) before interval is launched
- *  @param {Function=} input-number-spinner-on-change                      Callback function called when value has changed
- *  @param  {Boolean=} [ng-readonly=false]                                 Set component read-only
+ *  @param  {Number} ng-model                                               The model of the input
+ *  @param  {Number=} [input-number-spinner-min=-Infinity]                  The minimum value of the input
+ *  @param  {Number=} [input-number-spinner-max=Infinity]                   The maximum value of the input
+ *  @param  {Number=} [input-number-spinner-step=1]                         The size of the step to take when spinning
+ *  @param  {String=} [input-number-spinner-button-class=default]           The bootstrap class to add to buttons. For example : if buttonClass is equal to primary the buttons will have btn-primary class
+ *  @param  {Number=} [input-number-spinner-acceleration-speed=75]          Time (in ms) between two interval
+ *  @param  {Number=} [input-number-spinner-time-before-acceleration=500]   Time (in ms) before interval is launched
+ *  @param  {Function=} input-number-spinner-on-change                      Callback function called when value has changed
+ *  @param  {Boolean=} [ng-readonly=false]                                  Set component read-only
  */
 angular.module("ovh-angular-input-number-spinner").component("inputNumberSpinner", {
     bindings: {
         value: "=ngModel",
         min: "=?inputNumberSpinnerMin",
         max: "=?inputNumberSpinnerMax",
+        step: "<?inputNumberSpinnerStep",
         buttonClass: "@?inputNumberSpinnerButtonClass",
         accelerationSpeed: "@?inputNumberSpinnerAccelerationSpeed",
         timeBeforeAcceleration: "@?inputNumberSpinnerTimeBeforeAcceleration",
@@ -60,7 +62,7 @@ angular.module("ovh-angular-input-number-spinner").controller("inputNumberSpinne
 
     function increment () {
         if (self.value < self.max) {
-            self.value += 1;
+            self.value += self.step;
             self.onChangeEvent();
         } else if (self.value === self.max && mouseDownInterval) {
             self.cancelInterval();
@@ -69,7 +71,7 @@ angular.module("ovh-angular-input-number-spinner").controller("inputNumberSpinne
 
     function decrement () {
         if (self.value > self.min) {
-            self.value -= 1;
+            self.value -= self.step;
             self.onChangeEvent();
         } else if (self.value === self.min && mouseDownInterval) {
             self.cancelInterval();
@@ -161,7 +163,8 @@ angular.module("ovh-angular-input-number-spinner").controller("inputNumberSpinne
             max: Number.POSITIVE_INFINITY,
             accelerationSpeed: 75,
             timeBeforeAcceleration: 500,
-            buttonClass: "default"
+            buttonClass: "default",
+            step: 1
         };
 
         _.defaults(self, defaultValues);

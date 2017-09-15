@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "inputNumberSpinner",
       "shortDescription": "Enhance a number input for entering numeric values, with up/down buttons and arrow key handling.",
-      "keywords": "add api arrow bootstrap btn-primary buttonclass buttons callback called changed class component directive entering equal example function handling input input-number-spinner-on-change inputnumberspinner interval key launched maximum minimum model ms ng-model number numeric primary read-only set time values"
+      "keywords": "add api arrow bootstrap btn-primary buttonclass buttons callback called changed class component directive entering equal example function handling input input-number-spinner-on-change inputnumberspinner interval key launched maximum minimum model ms ng-model number numeric primary read-only set size spinning step time values"
     }
   ],
   "apis": {
