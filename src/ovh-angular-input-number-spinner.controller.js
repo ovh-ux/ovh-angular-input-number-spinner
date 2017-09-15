@@ -10,7 +10,7 @@ angular.module("ovh-angular-input-number-spinner").controller("inputNumberSpinne
 
     function increment () {
         if (self.value < self.max) {
-            self.value += 1;
+            self.value += self.step;
             self.onChangeEvent();
         } else if (self.value === self.max && mouseDownInterval) {
             self.cancelInterval();
@@ -19,7 +19,7 @@ angular.module("ovh-angular-input-number-spinner").controller("inputNumberSpinne
 
     function decrement () {
         if (self.value > self.min) {
-            self.value -= 1;
+            self.value -= self.step;
             self.onChangeEvent();
         } else if (self.value === self.min && mouseDownInterval) {
             self.cancelInterval();
@@ -111,7 +111,8 @@ angular.module("ovh-angular-input-number-spinner").controller("inputNumberSpinne
             max: Number.POSITIVE_INFINITY,
             accelerationSpeed: 75,
             timeBeforeAcceleration: 500,
-            buttonClass: "default"
+            buttonClass: "default",
+            step: 1
         };
 
         _.defaults(self, defaultValues);
