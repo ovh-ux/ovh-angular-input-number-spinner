@@ -1,6 +1,6 @@
 {
   "name": "ovh-angular-input-number-spinner",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Input Number with spinner",
   "main": "./dist/ovh-angular-input-number-spinner.min.js",
   "scripts": {
